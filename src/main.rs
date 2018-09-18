@@ -14,6 +14,7 @@
 /// ### 実行。
 /// cargo run --release
 /// ```
+use std::io;
 use std::io::prelude::*;
 use std::net::TcpStream;
 use std::str;
@@ -21,15 +22,26 @@ use std::str;
 const CONNECTION_STRING: &str = "127.0.0.1:4091";
 
 fn main() {
-    println!("I am a client!");
+    println!("わたしがクライアントだぜ☆（＾～＾） サーバーをテストするのに使えだぜ☆（＾～＾）");
 
-    // 入力を受け取る。
+    // サーバーに接続する。
     let mut stream = TcpStream::connect(CONNECTION_STRING).expect("Couldn't connect to the server...");
+    println!("サーバーにはもう　つないである☆（＾～＾）");
 
-    let _ = stream.write(b"Hello, server!");
-    /*
     // ずっと。
     loop {
+        println!("なんか入力しろだぜ☆（＾～＾） 終わるときは quit ☆（＾～＾）");
+
+        // コマンド プロンプトからの入力があるまで待機します。
+        let mut line = String::new();
+        io::stdin().read_line(&mut line).expect("info Failed to read_line");
+
+        if 3<line.len() && "quit" == &line[0..4] {
+            break;
+        }
+        let _ = stream.write(line.as_bytes());
+    }
+    /*
         let mut buf = vec![];
         match stream.read_to_end(&mut buf) {
             Ok(a) => {
@@ -38,7 +50,6 @@ fn main() {
             },
             Err(e) => panic!("encountered IO error: {}", e),
         };
-    }
     */
 
     println!("End client.");
