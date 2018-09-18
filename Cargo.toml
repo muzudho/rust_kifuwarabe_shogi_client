@@ -1,0 +1,6 @@
+[package]
+name = "rust_kifuwarabe_shogi_client"
+version = "0.1.0"
+authors = ["むずでょ <muzudho1@gmail.com>"]
+
+[dependencies]
