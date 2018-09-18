@@ -5,7 +5,7 @@
 /// 
 /// ```
 /// ### コンパイル(開発中)。
-/// cd C:\MuzudhoDrive\projects_rust\rust_kifuwarabe_shogi_server
+/// cd C:\MuzudhoDrive\projects_rust\rust_kifuwarabe_shogi_client
 /// cargo clippy
 /// 
 /// ### コンパイル(リリース用)。
@@ -25,6 +25,9 @@ fn main() {
 
     // 入力を受け取る。
     let mut stream = TcpStream::connect(CONNECTION_STRING).expect("Couldn't connect to the server...");
+
+    let _ = stream.write(b"Hello, server!");
+    /*
     // ずっと。
     loop {
         let mut buf = vec![];
@@ -36,4 +39,7 @@ fn main() {
             Err(e) => panic!("encountered IO error: {}", e),
         };
     }
+    */
+
+    println!("End client.");
 }
