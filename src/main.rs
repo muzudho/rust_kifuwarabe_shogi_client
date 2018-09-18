@@ -39,7 +39,9 @@ fn main() {
         if 3<line.len() && "quit" == &line[0..4] {
             break;
         }
+        // FIXME マルチバイト文字の送信方法が分からん☆（＾～＾）
         let _ = stream.write(line.as_bytes());
+        let _ = stream.flush();
     }
     /*
         let mut buf = vec![];
