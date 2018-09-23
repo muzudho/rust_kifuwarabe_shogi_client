@@ -19,7 +19,7 @@ use std::io::prelude::*;
 use std::net::TcpStream;
 use std::str;
 
-const CONNECTION_STRING: &str = "127.0.0.1:4091";
+const CONNECTION_STRING: &str = "127.0.0.1:4081";
 
 fn main() {
     println!("わたしがクライアントだぜ☆（＾～＾） サーバーをテストするのに使えだぜ☆（＾～＾）");
